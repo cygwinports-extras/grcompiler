@@ -1,0 +1,13 @@
+NAME="grcompiler"
+VERSION=4.2
+RELEASE=1
+CATEGORY="X11"
+SUMMARY="SIL Graphite font compiler"
+DESCRIPTION="The SIL Graphite compiler builds a Graphite enabled font from a
+smart font description, written in GDL (Graphite Description Language) and a
+TrueType font by adding extra TrueType tables to it which the Graphite engine
+can interpret."
+HOMEPAGE="http://graphite.sil.org/"
+SRC_URI="mirror://sourceforge/silgraphite/${NAME}-${VERSION}.tar.gz"
+PATCH_URI="01-as-needed.patch  02-make-syntax.patch  03-xmlto.patch"
+

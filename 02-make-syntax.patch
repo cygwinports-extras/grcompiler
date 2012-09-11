@@ -1,0 +1,11 @@
+--- origsrc/grcompiler-4.2/test/GrcRegressionTest/Makefile.am	2012-05-09 02:14:15.000000000 -0500
++++ src/grcompiler-4.2/test/GrcRegressionTest/Makefile.am	2012-09-10 23:31:19.526925100 -0500
+@@ -6,7 +6,7 @@ noinst_PROGRAMS = GrcRegressionTest
+ 
+ AM_CPPFLAGS = -I$(top_srcdir)/../../compiler
+ 
+-@ GrcRegressionTest_LDFLAGS = $(GR2_LIBS)
++GrcRegressionTest_LDFLAGS = $(GR2_LIBS)
+ 
+ GrcRegressionTest_SOURCES = \
+         main.h \

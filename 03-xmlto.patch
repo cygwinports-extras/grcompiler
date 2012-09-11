@@ -1,0 +1,35 @@
+OpenSP doesn't agree with XML DTD 4.5 ISO entities, e.g.:
+
+nsgmls:/usr/share/sgml/docbook/xml-dtd-4.5/docbookx.dtd:116:17:E:
+"X20AC" is not a function name
+nsgmls:/usr/share/sgml/docbook/xml-dtd-4.5/ent/isoamsa.ent:42:29:E: 
+"X021B6" is not a function name
+
+--- origsrc/grcompiler-4.2/configure.ac	2012-06-21 00:20:47.000000000 -0500
++++ src/grcompiler-4.2/configure.ac	2012-09-10 23:35:11.861286200 -0500
+@@ -37,10 +37,10 @@ AC_PROG_RANLIB
+ 
+ AC_PATH_PROG(LSB_RELEASE, lsb_release, no)
+ 
+-# docbook2man utility
+-AC_ARG_VAR(DOCBOOK2MAN, [Program used to process XML man pages])
+-AC_CHECK_PROGS(DOCBOOK2MAN, docbook2x-man docbook2man, no)
+-if test "$DOCBOOK2MAN" = no; then
++# xmlto utility
++AC_ARG_VAR(XMLTO, [Program used to process XML man pages])
++AC_CHECK_PROGS(XMLTO, xmlto, no)
++if test "$XMLTO" = no; then
+     AC_MSG_FAILURE([Could not find a program to process XML man pages])
+ fi
+ 
+--- origsrc/grcompiler-4.2/doc/Makefile.am	2012-04-05 03:47:27.000000000 -0500
++++ src/grcompiler-4.2/doc/Makefile.am	2012-09-10 23:13:19.905782000 -0500
+@@ -8,7 +8,7 @@ man_MANS = grcompiler.1 gdlpp.1
+ MOSTLYCLEANFILES = $(man_MANS)
+ 
+ grcompiler.1: $(srcdir)/grcompiler.1.xml
+-	$(DOCBOOK2MAN) $(srcdir)/grcompiler.1.xml
++	$(XMLTO) man $(srcdir)/grcompiler.1.xml
+ 
+ gdlpp.1: $(srcdir)/gdlpp.1.in
+ 	cp $(srcdir)/gdlpp.1.in gdlpp.1
