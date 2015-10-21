@@ -1,6 +1,6 @@
 NAME="grcompiler"
 VERSION=4.2
-RELEASE=3
+RELEASE=4
 CATEGORY="X11"
 SUMMARY="SIL Graphite font compiler"
 DESCRIPTION="The SIL Graphite compiler builds a Graphite enabled font from a
